@@ -1,18 +1,26 @@
 // Google Fonts ·····························1···
+
 @import url('https://fonts.googleapis.com/css?family=Material+Icons|Roboto:100,400,700');
-// Fuentes
+
+// Fuentes ······································
+
 $f-int: 2.85rem;
 $f-sub: 22px;
 $f-lis: 1rem;
 $f-ico: 3rem;
+$f-ico-m: 2rem;
+
 // Paleta ···································2···
+
 $color-p: #3E51B5;
 $color-s: #F8BD05;
 $color-t: #1B1E1D;
 $color-b: #f3f3f3;
 $color-c: #8080804b;
 $color-sh: #00000077;
+
 // Preset ...................................3...
+
 * {
     box-sizing: content-box;
     font-family: 'Roboto', helvetica, sans-serif;
@@ -20,9 +28,14 @@ $color-sh: #00000077;
     padding: 0;
     list-style: none;
     text-decoration: none;
+
+    &:hover {
+        text-decoration: none;
+    }
 }
 
 // Preset Bootstrap ·······················3·1···
+
 .row,
 .container,
 .container-fluid {
@@ -33,61 +46,77 @@ $color-sh: #00000077;
 .card.tresd {
     min-height: 500px;
     border: none;
-}
 
-.card.card-ico {
-    padding-top: 20px;
-    border-top: solid 3px $color-t;
-    &:hover {
-        border-top: solid 3px $color-p;
-        transition-property: border-top;
-        transition-duration: 280ms;
-        transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-        .material-icons.grande {
-            text-align: center;
-            color: $color-p;
-            transition-property: color;
-            transition-duration: 280ms;
-            transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-        }
-    }
-    .material-icons.grande {
-        text-align: center;
-        color: $color-t;
+    &.card-ico {
+        min-height: 300px;
     }
 }
 
 .accordion {
-    max-width: 800px;
     margin: auto;
+    padding: 0;
+    border-radius: 5px;
+
+    .card-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        border-bottom: none;
+        background-color: $color-b;
+        
+
+        h5 {
+            padding: 0;
+        }
+    }
 }
 
 .btn {
     background-color: none;
-    color: $color-p
+    color: $color-p;
+
+    &:hover {
+        text-decoration: none;
+    }
+}
+
+.btn-link {
+    width: 100%;
+    padding: 0;
+    text-align: left;
+    color: $color-p;
+    font-size: $f-sub;
 }
 
 // Animaciones ··································
+
 .tresd {
     box-shadow: 0 2px 3px $color-sh;
-    transition-property: box-shadow color background-color;
+    transition-property: box-shadow color background-color border-top;
     transition-duration: 280ms;
     transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
     transition-delay: 0s;
+
     &:hover {
         box-shadow: 0 25px 20px $color-sh;
         background-color: white;
     }
+
     &:active {
         box-shadow: 0 2px 3px $color-sh;
         background-color: $color-p;
         color: white;
     }
+
     &.ctf {
+        background-color: $color-p;
+        color: white;
+
         &:hover {
-            background-color: $color-p;
-            color: white;
+            background-color: $color-s;
+            color: black;
         }
+
         &:active {
             box-shadow: 0 2px 3px $color-sh;
             background-color: white;
@@ -99,25 +128,57 @@ $color-sh: #00000077;
             background-color: $color-p;
             color: white;
         }
+
         &:active {
             box-shadow: 0 2px 3px $color-sh;
             background-color: $color-b;
             color: black;
         }
     }
+    &.card-ico {
+        min-height: 300px;
+        padding-top: 20px;
+        border-top: solid 3px $color-t;
+
+        .material-icons.grande {
+            text-align: center;
+            color: $color-t;
+        }
+
+        &:hover {
+            border-top: solid 3px $color-p;
+
+            .material-icons.grande {
+                text-align: center;
+                color: $color-p;
+            }
+        }
+    }
 }
 
 // Material Design ··························4···
+
 .material-icons.color-s {
     color: $color-s;
 }
 
 .material-icons.grande {
     font-size: $f-ico;
+    margin: 30px 0;
+}
+
+.material-icons.medio {
+    margin-right: 30px 0;
+    padding: 0;
+    font-size: $f-ico-m;
+    color: $color-p;
+    text-align: right;
 }
 
 // Estilos ··································5···
+
 // Botones ································5·1···
+
 .c2a {
     padding: 15px 30px;
     background-color: $color-s;
@@ -126,12 +187,18 @@ $color-sh: #00000077;
     color: $color-t;
     font-size: $f-sub;
     font-weight: 400;
+
     i {
         margin-right: 15px;
     }
 }
 
+.bot-centro {
+    margin: auto;
+}
+
 // Generales ····································
+
 .bloque-a {
     width: 100vw;
     padding: 100px 0;
@@ -140,7 +207,7 @@ $color-sh: #00000077;
 
 .bloque-b {
     width: 100vw;
-    height: 40vh;
+    height: 30vh;
     background: center / cover no-repeat fixed url("./assets/img/fondo.jpg");
 }
 
@@ -155,9 +222,27 @@ $color-sh: #00000077;
     margin: auto;
 }
 
+.bloque-unico {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+
+    h2 {
+        color: white;
+        font-weight: 100;
+    }
+
+    p {
+        color: white;
+        font-weight: 100;
+    }
+}
+
 .bloque-header {
-    margin-bottom: 30px;
+    margin-bottom: 50px;
     padding: 0;
+
     h2 {
         font-weight: 700;
     }
@@ -175,6 +260,10 @@ $color-sh: #00000077;
     text-align: center;
 }
 
+.centrado {
+    text-align: center;
+}
+
 .raya {
     height: 1px;
     margin: 15px 0;
@@ -182,14 +271,17 @@ $color-sh: #00000077;
 }
 
 // Header ·······································
+
 .encabezado {
     width: 100vw;
     background: center / cover no-repeat fixed url("./assets/img/fondo.jpg");
+
     .nav-top {
         height: 50px;
         background-color: white;
         box-shadow: 0 4px 5px $color-sh;
         z-index: 5;
+
         .cabecera {
             max-width: 1200px;
             min-height: 50px;
@@ -197,12 +289,14 @@ $color-sh: #00000077;
             display: flex;
             align-items: center;
             justify-content: space-between;
+
             h4 {
                 color: $color-t;
                 font-style: italic;
             }
         }
     }
+
     .cuerpo {
         max-width: 1200px;
         padding: 150px 0;
@@ -210,24 +304,29 @@ $color-sh: #00000077;
         display: flex;
         align-items: center;
         justify-content: space-between;
+
         .intro {
             color: white;
+
             h1 {
                 margin-bottom: 30px;
                 font-weight: 700;
                 font-size: $f-int;
                 text-shadow: 0 2px 4px $color-sh;
             }
+
             h2 {
                 font-size: $f-sub;
                 font-weight: 100;
                 line-height: 30px;
             }
+
             h3 {
                 font-size: $f-sub;
                 font-weight: 100;
             }
         }
+
         .catcheye {
             margin: 0;
             padding: 0;
@@ -237,9 +336,11 @@ $color-sh: #00000077;
 
 .cheks {
     margin: 30px 0 30px 0;
+
     li {
         display: flex;
         align-items: center;
+
         span {
             margin-left: 25px;
             line-height: 50px;
@@ -252,9 +353,9 @@ $color-sh: #00000077;
 .catch-visual {
     .catch-img {
         padding: 20px;
+
         img {
             max-width: 600px;
-            ;
         }
     }
 }
