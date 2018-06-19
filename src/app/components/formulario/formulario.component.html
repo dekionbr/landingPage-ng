@@ -1,3 +1,88 @@
-<p>
-  formulario works!
-</p>
+<div [hidden]="submitted">
+
+  <div class="container-fluid bloque-a">
+
+    <div class="container contenido">
+
+      <div class="bloque-header col-12 col-md-6">
+        <h2>Contáctenos Ahora</h2>
+        <p>Rellene el siguiente formulario y cuéntenos acerca de su proyecto</p>
+      </div>
+
+      <form action="" name="landingForm" id="landingForm" #landingForm="ngForm" (ngSubmit)="onSubmit()" novalidate>
+
+        <div class="campo">
+          <input placeholder="Nombre Completo" type="text" class="" id="nombre" name="nombre" #nombre="ngModel" [(ngModel)]="nContacto.nombre"
+            required>
+          <div *ngIf="!nombre.valid && nombre.touched">
+            <small>El nombre completo es necesario</small>
+          </div>
+        </div>
+
+        <div class="campo">
+          <input placeholder="Compañía" type="text" class="" id="compania" name="compania" #compania="ngModel" [(ngModel)]="nContacto.compania">
+        </div>
+
+        <div class="campo">
+          <input placeholder="E-mail" type="text" class="" id="email" name="email" #email="ngModel" [(ngModel)]="nContacto.email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
+            required>
+          <div *ngIf="!email.valid && email.touched">
+            <small>Ingrese un e-mail válido</small>
+          </div>
+        </div>
+
+        <div class="campo">
+          <input placeholder="País" type="text" class="" id="pais" name="pais" #pais="ngModel" [(ngModel)]="nContacto.pais" required>
+          <div *ngIf="!pais.valid && pais.touched">
+            <small>Su país de residencia es necesario para brindarle un servicio mejor</small>
+          </div>
+        </div>
+
+        <div class="campo">
+          <textarea placeholder="Mensaje" type="text" class="" id="mensaje" name="mensaje" #mensaje="ngModel" [(ngModel)]="nContacto.mensaje"
+            required></textarea>
+          <div *ngIf="!mensaje.valid && mensaje.touched">
+            <small>Cuéntenos acerca de su proyecto</small>
+          </div>
+        </div>
+
+        <button type="submit" class="c2a tresd enviar" [disabled]="!landingForm.valid">
+          <i class="material-icons">
+            send
+          </i>
+        </button>
+
+      </form>
+
+      <div class="bloque-footer">
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
+
+<div class="col-12 oculto" [hidden]="!submitted">
+
+  <div class="container-fluid bloque-a">
+
+    <div class="container contenido">
+
+      <div class="contenido bloque-enviado">
+
+        <h3>Enviado Correctamente</h3>
+        <h6>Muchas gracias por contactarnos,</h6>
+        <h6>muy pronto le enviaremos toda la información a:</h6>
+
+        <h2>{{ nContacto.email }}</h2>
+
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
