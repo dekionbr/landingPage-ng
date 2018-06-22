@@ -1,12 +1,38 @@
+// Desarrollado por likuid · Junio 2018
+// Autor: Pablo Pimas
+
+// Indice ·······································
+
+// 1 Importaciones
+// 2 Tamaños de fuente 
+// 3 Paleta de colores
+// 4 Presets
+// 4.1 Presets de bootstrap
+// 5 Animaciones
+// 6 Material icons
+// 7 Estilos
+// 7.1 Botones
+// 7.2 Generales
+// 7.3 Header
+// 7.4 Formulario
+// 7.4.1 Validaciones
+// 7.4.2 Campos
+
 // Google Fonts ·····························1···
+
 @import url('https://fonts.googleapis.com/css?family=Material+Icons|Roboto:100,400,700');
-// Fuentes ······································
+
+// Fuentes ··································2···
+
 $f-int: 2.85rem;
-$f-sub: 22px;
+$f-int-s: 1.85rem;
+$f-sub: 1.5rem;
 $f-lis: 1rem;
 $f-ico: 3rem;
 $f-ico-m: 2rem;
-// Paleta ···································2···
+
+// Paleta ···································3···
+
 $color-p: #3E51B5;
 $color-s: #F8BD05;
 $color-t: #1B1E1D;
@@ -15,7 +41,9 @@ $color-c: #8080804b;
 $color-sh: #00000077;
 $color-r: #C32933;
 $color-rb: #ffe3e5;
-// Preset ...................................3...
+
+// Preset ...................................4...
+
 * {
     box-sizing: border-box;
     font-family: 'Roboto', helvetica, sans-serif;
@@ -23,12 +51,14 @@ $color-rb: #ffe3e5;
     padding: 0;
     list-style: none;
     text-decoration: none;
+
     &:hover {
         text-decoration: none;
     }
 }
 
-// Preset Bootstrap ·······················3·1···
+// Preset Bootstrap ·······················4·1···
+
 .row,
 .container,
 .container-fluid {
@@ -36,13 +66,10 @@ $color-rb: #ffe3e5;
     margin: 0;
 }
 
-.card {
-    border-radius: 2px;
-}
-
 .card.tresd {
     min-height: 500px;
     border: none;
+
     &.card-ico {
         min-height: 300px;
     }
@@ -52,12 +79,14 @@ $color-rb: #ffe3e5;
     margin: auto;
     padding: 0;
     border-radius: 5px;
+
     .card-header {
         display: flex;
         align-items: center;
         justify-content: space-between;
         border-bottom: none;
         background-color: $color-b;
+
         h5 {
             padding: 0;
         }
@@ -67,6 +96,7 @@ $color-rb: #ffe3e5;
 .btn {
     background-color: none;
     color: $color-p;
+
     &:hover {
         text-decoration: none;
     }
@@ -78,56 +108,74 @@ $color-rb: #ffe3e5;
     text-align: left;
     color: $color-p;
     font-size: $f-sub;
+
+    @media (max-width: 1200px) { 
+        font-size: $f-lis;
+    }
 }
 
-// Animaciones ··································
+// Animaciones ······························5···
+
 .tresd {
     box-shadow: 0 2px 3px $color-sh;
     transition-property: box-shadow color background-color border-top;
     transition-duration: 280ms;
     transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
     transition-delay: 0s;
+
     &:hover {
         box-shadow: 0 25px 20px $color-sh;
         background-color: white;
+        text-decoration: none;
+        color: $color-p;
     }
+
     &:active {
         box-shadow: 0 2px 3px $color-sh;
         background-color: $color-p;
         color: white;
     }
+
     &.ctf {
         background-color: $color-p;
         color: white;
+
         &:hover {
             background-color: $color-s;
             color: black;
         }
+
         &:active {
             box-shadow: 0 2px 3px $color-sh;
             background-color: white;
             color: black;
         }
     }
+
     &.ctfg {
+
         &:hover {
             background-color: $color-p;
             color: white;
         }
+
         &:active {
             box-shadow: 0 2px 3px $color-sh;
             background-color: $color-b;
             color: black;
         }
     }
+
     &.card-ico {
         min-height: 300px;
         padding-top: 20px;
         border-top: solid 3px $color-t;
+
         .material-icons.grande {
             text-align: center;
             color: $color-t;
         }
+
         &:hover {
             border-top: solid 3px $color-p;
             .material-icons.grande {
@@ -136,25 +184,28 @@ $color-rb: #ffe3e5;
             }
         }
     }
+
     &.enviar {
         width: 60px;
         height: 60px;
         margin: 0;
         padding: 0;
         border-radius: 50%;
+
         i {
             width: 100%;
             text-align: center;
             vertical-align: middle;
         }
+
         &:disabled {
             background-color: $color-b;
             color: $color-t;
+
             &:hover {
                 box-shadow: 0 2px 3px $color-sh;
             }
         }
-        
     }
 }
 
@@ -164,17 +215,20 @@ $color-rb: #ffe3e5;
     transition-duration: 280ms;
     transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
     transition-delay: 0s;
+
     &:hover {
         box-shadow: 0 25px 20px $color-sh;
         color: $color-p;
     }
+
     &:active {
         box-shadow: 0 2px 3px $color-sh;
         color: $color-s;
     }
 }
 
-// Material Design ··························4···
+// Material Design ··························6···
+
 .material-icons.color-s {
     color: $color-s;
 }
@@ -190,10 +244,16 @@ $color-rb: #ffe3e5;
     font-size: $f-ico-m;
     color: $color-p;
     text-align: right;
+
+    @media (max-width: 992px) {
+        display: none;
+    }
 }
 
-// Estilos ··································5···
-// Botones ································5·1···
+// Estilos ··································7···
+
+// Botones ································7·1···
+
 .c2a {
     padding: 15px 30px;
     background-color: $color-s;
@@ -202,6 +262,11 @@ $color-rb: #ffe3e5;
     color: $color-t;
     font-size: $f-sub;
     font-weight: 400;
+
+    @media (min-width: 992px) {
+        margin: auto;
+    }
+
     i {
         margin-right: 15px;
     }
@@ -211,7 +276,8 @@ $color-rb: #ffe3e5;
     margin: auto;
 }
 
-// Generales ····································
+// Generales ······························7·2···
+
 .bloque-a {
     width: 100vw;
     padding: 100px 0;
@@ -220,8 +286,12 @@ $color-rb: #ffe3e5;
 
 .bloque-b {
     width: 100vw;
-    height: 30vh;
     background: center / cover no-repeat fixed url("./assets/img/fondo.jpg");
+
+    @media (max-width: 992px) { 
+        display: flex;
+        align-items: center;
+    }
 }
 
 .bloque-c {
@@ -233,26 +303,16 @@ $color-rb: #ffe3e5;
 .contenido {
     max-width: 1200px;
     margin: auto;
-}
 
-.bloque-unico {
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    h2 {
-        color: white;
-        font-weight: 100;
-    }
-    p {
-        color: white;
-        font-weight: 100;
+    @media (max-width: 1200px) { 
+        padding: 20px;
     }
 }
 
 .bloque-header {
     margin-bottom: 50px;
     padding: 0;
+
     h2 {
         font-weight: 700;
     }
@@ -280,79 +340,140 @@ $color-rb: #ffe3e5;
     background-color: $color-c;
 }
 
+.raya-2 {
+    height: 2px;
+    width: 50px;
+    background-color: $color-s;
+}
+
 .demo-link {
     color: $color-t;
+
     &:hover {
         text-decoration: none;
         color: $color-p;
     }
+
     h5 {
         margin: 0;
         padding: 20px;
     }
+
     .card-img-top {
         border-radius: 0;
     }
 }
 
-// Header ·······································
+// Header ·································7·3···
+
 .encabezado {
     width: 100vw;
     background: center / cover no-repeat fixed url("./assets/img/fondo.jpg");
+
     .nav-top {
         height: 50px;
         background-color: white;
         box-shadow: 0 4px 5px $color-sh;
         z-index: 5;
-        .cabecera {
-            max-width: 1200px;
-            min-height: 50px;
-            margin: auto;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            h4 {
-                color: $color-t;
-                font-style: italic;
-            }
+    }
+}
+
+.cabecera {
+    max-width: 1200px;
+    min-height: 50px;
+    padding: 0 30px;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    @media (min-width: 1200px) { 
+        padding: 0;
+    }
+
+    #webdd-largo {
+        color: $color-t;
+        font-style: italic;
+        font-size: $f-lis;
+
+        @media (max-width: 991.98px) { 
+            display: none;
         }
     }
-    .cuerpo {
-        max-width: 1200px;
-        padding: 150px 0;
-        margin: auto;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        .intro {
-            color: white;
-            h1 {
-                margin-bottom: 30px;
-                font-weight: 700;
-                font-size: $f-int;
-                text-shadow: 0 2px 4px $color-sh;
+
+    #webdd-corto {
+
+        @media (min-width: 992px) { 
+            display: none;
+        }
+    }
+}
+
+.cuerpo {
+    max-width: 1200px;
+    padding: 150px 0;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    @media (max-width: 1200px) { 
+        padding: 50px 20px;
+    }
+
+    .intro {
+        color: white;
+
+        @media (max-width: 992px) { 
+            margin-bottom: 150px;
+        }
+
+        h1 {
+            margin-bottom: 30px;
+            font-weight: 700;
+            font-size: $f-int;
+            text-shadow: 0 2px 4px $color-sh;
+
+            @media (max-width: 992px) { 
+                font-size: $f-int-s;
             }
-            h2 {
-                font-size: $f-sub;
-                font-weight: 100;
-                line-height: 30px;
+        }
+
+        h2 {
+            font-size: $f-sub;
+            font-weight: 100;
+            line-height: 30px;
+
+            @media (max-width: 992px) { 
+                display: none;
             }
-            h3 {
-                font-size: $f-sub;
-                font-weight: 100;
-            }
-            .cheks {
-                margin: 30px 0 30px 0;
-                li {
-                    display: flex;
-                    align-items: center;
-                    span {
-                        margin-left: 25px;
-                        line-height: 50px;
-                        font-size: $f-lis;
-                        font-weight: 100;
-                    }
+        }
+
+        h3 {
+            font-size: $f-sub;
+            font-weight: 100;
+        }
+
+        .cheks {
+            margin: 30px 0 30px 0;
+
+            li {
+                display: flex;
+                align-items: center;
+
+                span {
+                    margin-left: 25px;
+                    line-height: 50px;
+                    font-size: $f-lis;
+                    font-weight: 100;
                 }
+            }
+        }
+
+        .call2action {
+            
+            @media (max-width: 992px) { 
+                text-align: center;
             }
         }
     }
@@ -361,11 +482,14 @@ $color-rb: #ffe3e5;
 .catcheye {
     margin: 0;
     padding: 0;
+
     .catcheye-intro {
         position: relative;
+
         .catcheye-img {
             max-width: 100%;
         }
+
         .catcheye-link {
             position: absolute;
             top: -60px;
@@ -380,16 +504,26 @@ $color-rb: #ffe3e5;
             background-color: white;
             text-align: center;
             color: $color-t;
+
+            @media (max-width: 992px) { 
+                top: -80px;
+                right: -10px;
+            }
+
+
+
             &:hover {
                 background-color: $color-s;
                 color: black;
                 text-decoration: none;
             }
+
             &:active {
                 background-color: $color-p;
                 color: white;
                 text-decoration: none;
             }
+
             .catcheye-precio {
                 font-size: $f-sub;
             }
@@ -397,14 +531,37 @@ $color-rb: #ffe3e5;
     }
 }
 
-// Formulario ···································
+// Servicios ····································
+
+.bloque-unico {
+    height: 80%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+
+    @media (max-width: 992px) { 
+        flex-direction: column;
+    }
+
+    h2 {
+        color: white;
+        font-weight: 100;
+    }
+
+    p {
+        color: white;
+        font-weight: 100;
+    }
+}
+
+// Formulario ·····························7·4···
 
 .oculto {
     padding: 0;
     margin: 0;
 }
 
-// Validaciones ·································
+// Validaciones ·························7·4·1···
 
 .ng-invalid.ng-touched:not(form) {
     border-bottom: 2px solid $color-r;
@@ -418,7 +575,7 @@ span {
     text-align: center;
 }
 
-// Campos ·······································
+// Campos ·······························7·4·2···
 
 form {
     max-width: 1200px;
@@ -431,6 +588,7 @@ form {
 }
 
 input, textarea {
+    outline: 0px;
     padding: 5px 0;
     display: block;
     width: 100%;
@@ -443,7 +601,9 @@ input, textarea {
     transition-duration: 280ms;
     transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
     transition-delay: 0s;
+
     &:focus {
+        box-shadow: 0px;
         border-bottom: solid 2px $color-p;
     } 
 }
@@ -455,9 +615,11 @@ input, textarea {
     background-color: $color-b;
     box-shadow: 0 4px 5px $color-sh;
     text-align: center;
+
     h3 {
         margin-bottom: 30px;
     }
+
     h2 {
         color: $color-p;
         font-size: $f-sub;
@@ -478,14 +640,84 @@ input, textarea {
     margin-top: 45px;
 }
 
-// Footer ·······································
+// Footer ·································7·5···
 
 .footer {
-    display: flex;
-    flex-direction: row;
-    align-items: flex-start;
-    justify-content: space-between;
-    height: 30vh;
+    padding: 20px 20px;
     background-color: $color-t;
+    color: $color-b;
+    font-weight: 100;
 }
+
+.footer-nosotros {
+
+    h4 {
+        padding: 10px 0;
+    }
+
+    p {
+        padding: 10px 0;
+    }
+}
+
+.footer-contacto {
+
+    h4 {
+        padding: 10px 0;
+    }
+}
+
+.contacto-cuerpo {
+    padding: 10px 0;
+}
+
+.contacto-mail {
+    padding: 0;
+
+    ol {
+
+        li {
+            display: flex;
+            align-items: center;
+            justify-content: left;
+            padding: 10px 0;
+
+            a {
+                color: $color-b;
+                margin-left: 20px;
+
+                &:hover {
+                    text-decoration: none;
+                    color: $color-s;
+                }
+            }
+        }
+    }
+}
+
+.contacto-adress {
+    padding: 10px 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+
+    ol {
+        margin-top: 25px;
+    }
+
+}
+
+.copy {
+
+    p {
+        padding: 5px 0;
+        margin: 0;
+        background-color: $color-s;
+        text-align: center;
+        font-size: 0.75rem;
+        color: $color-t;
+    }
+}
+
+
 
